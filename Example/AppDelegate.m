@@ -27,6 +27,7 @@
                                           targetColor:[UIColor greenColor]
                                        withIdentifier:@"pink is always good"];
   UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+  imageView.frame = CGRectMake(0, 100, imageView.bounds.size.width, imageView.bounds.size.height);
   [self.window addSubview:imageView];
 
   [self.window makeKeyAndVisible];

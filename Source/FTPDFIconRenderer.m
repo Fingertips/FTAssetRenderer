@@ -232,7 +232,6 @@ FTPDFMD5String(NSString *input) {
   }
 
   CGSize targetSize = self.targetSize;
-  CGRect targetRect = CGRectMake(0, 0, targetSize.width, targetSize.height);
 
   UIGraphicsBeginImageContextWithOptions(targetSize, false, 0);
   CGContextRef context = UIGraphicsGetCurrentContext();
@@ -244,7 +243,7 @@ FTPDFMD5String(NSString *input) {
   CGContextSaveGState(context);
   CGPDFPageRef page = self.sourcePage;
   CGRect mediaRect = self.mediaRectOfSourcePage;
-  CGContextScaleCTM(context, targetRect.size.width / mediaRect.size.width, targetRect.size.height / mediaRect.size.height);
+  CGContextScaleCTM(context, targetSize.width / mediaRect.size.width, targetSize.height / mediaRect.size.height);
   CGContextTranslateCTM(context, -mediaRect.origin.x, -mediaRect.origin.y);
   CGContextDrawPDFPage(context, page);
   CGContextRestoreGState(context);
@@ -253,7 +252,7 @@ FTPDFMD5String(NSString *input) {
   if (self.isMask) {
     CGContextSetFillColorWithColor(context, self.targetColor.CGColor);
     CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
-    CGContextFillRect(context, targetRect);
+    CGContextFillRect(context, CGRectMake(0, 0, targetSize.width, targetSize.height));
   }
 
   image = UIGraphicsGetImageFromCurrentImageContext();
