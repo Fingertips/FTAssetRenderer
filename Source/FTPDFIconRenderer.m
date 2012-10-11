@@ -304,6 +304,12 @@ FTPDFMD5String(NSString *input) {
                                                    NSStringFromCGSize(self.targetSize),
                                                    self.sourcePageIndex,
                                                    identifier ?: @""];
+#if TARGET_IPHONE_SIMULATOR
+  // On the simulator, the cache dir is shared between retina and non-retina
+  // devices, so include the device's main screen scale factor to ensure the
+  // right dimensions are used per device.
+  cachePath = [NSString stringWithFormat:@"%@-%f", cachePath, [[UIScreen mainScreen] scale]];
+#endif
   cachePath = FTPDFMD5String(cachePath);
   cachePath = [[[self class] cacheDirectory] stringByAppendingPathComponent:cachePath];
   cachePath = [cachePath stringByAppendingPathExtension:@"png"];
