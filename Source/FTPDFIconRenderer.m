@@ -53,14 +53,14 @@ FTPDFMD5String(NSString *input) {
 }
 
 + (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                  targetSize:(CGSize)targetSize
+                     fitSize:(CGSize)maxSize
                  targetColor:(UIColor *)targetColor
               withIdentifier:(NSString *)identifier;
 {
   FTPDFIconRenderer *renderer = [self iconRendererForPDFNamed:pdfName
                                                   targetColor:targetColor];
   if (renderer) {
-    renderer.targetSize = targetSize;
+    [renderer fitSize:maxSize];
     return [renderer imageWithCacheIdentifier:identifier];
   }
   return nil;
@@ -102,10 +102,10 @@ FTPDFMD5String(NSString *input) {
 }
 
 + (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                  targetSize:(CGSize)targetSize;
+                     fitSize:(CGSize)maxSize
 {
   return [self imageOfPDFNamed:pdfName
-                    targetSize:targetSize
+                       fitSize:maxSize
                    targetColor:nil
                 withIdentifier:nil];
 }
@@ -187,10 +187,10 @@ FTPDFMD5String(NSString *input) {
   return _targetSize;
 }
 
-- (void)fitSize:(CGSize)size;
+- (void)fitSize:(CGSize)maxSize;
 {
   CGRect mediaRect = self.mediaRectOfSourcePage;
-  CGFloat scaleFactor = MAX(mediaRect.size.width / size.width, mediaRect.size.height / size.height);
+  CGFloat scaleFactor = MAX(mediaRect.size.width / maxSize.width, mediaRect.size.height / maxSize.height);
   self.targetSize = CGSizeMake(ceilf(mediaRect.size.width / scaleFactor), ceilf(mediaRect.size.height / scaleFactor));
 }
 

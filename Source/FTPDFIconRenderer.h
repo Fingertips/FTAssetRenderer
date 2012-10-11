@@ -24,9 +24,9 @@
                                    targetColor:(UIColor *)targetColor;
 
 + (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                  targetSize:(CGSize)targetSize;
+                     fitSize:(CGSize)maxSize;
 + (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                  targetSize:(CGSize)targetSize
+                     fitSize:(CGSize)maxSize
                  targetColor:(UIColor *)targetColor
               withIdentifier:(NSString *)identifier;
 
@@ -44,7 +44,7 @@
                  targetColor:(UIColor *)targetColor
               withIdentifier:(NSString *)identifier;
 
-- (void)fitSize:(CGSize)size;
+- (void)fitSize:(CGSize)maxSize;
 - (void)fitWidth:(CGFloat)targetWidth;
 - (void)fitHeight:(CGFloat)targetHeight;
 
