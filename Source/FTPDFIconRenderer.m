@@ -1,43 +1,12 @@
 #import "FTPDFIconRenderer.h"
-#import "TargetConditionals.h"
 
-// From: https://gist.github.com/1209911
-#import <CommonCrypto/CommonDigest.h>
-static NSString *
-FTPDFMD5String(NSString *input) {
-  const char *cStr = [input UTF8String];
-  unsigned char result[16];
-  CC_MD5(cStr, strlen(cStr), result);
-  return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-                                    result[0],  result[1],  result[2],  result[3],
-                                    result[4],  result[5],  result[6],  result[7],
-                                    result[8],  result[9],  result[10], result[11],
-                                    result[12], result[13], result[14], result[15]];
-}
 
 @interface FTPDFIconRenderer () {
   CGPDFDocumentRef _document;
 }
-- (NSString *)cachePathWithIdentifier:(NSString *)identifier;
-- (UIImage *)cachedImageAtPath:(NSString *)cachePath;
 @end
 
 @implementation FTPDFIconRenderer
-
-+ (NSString *)cacheDirectory;
-{
-  static NSString *cacheDirectory;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    cacheDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-    cacheDirectory = [cacheDirectory stringByAppendingPathComponent:@"__FTPDFIconRenderer_CACHE__"];
-    [[NSFileManager new] createDirectoryAtPath:cacheDirectory
-                   withIntermediateDirectories:YES
-                                    attributes:nil
-                                         error:NULL];
-  });
-  return cacheDirectory;
-}
 
 #pragma mark - shortcut methods with mask color
 
@@ -46,7 +15,7 @@ FTPDFMD5String(NSString *input) {
 {
   NSURL *URL = [[NSBundle mainBundle] URLForResource:pdfName withExtension:@"pdf"];
   if (URL) {
-    FTPDFIconRenderer *renderer = [[self alloc] initWithPDF:URL];
+    FTPDFIconRenderer *renderer = [[self alloc] initWithURL:URL];
     renderer.targetColor = targetColor;
     return renderer;
   }
@@ -138,21 +107,15 @@ FTPDFMD5String(NSString *input) {
 
 // Don't open the PDF yet, as the user may want the actual work to be done on a
 // background thread.
-//
-// TODO: Check if opening the PDF actualy does any work.
-- (id)initWithPDF:(NSURL *)URL;
+- (id)initWithURL:(NSURL *)URL;
 {
-  if ((self = [super init])) {
-    _cache = YES;
+  if ((self = [super initWithURL:URL])) {
     _document = NULL;
     _sourcePageIndex = 1;
     _targetSize = CGSizeZero;
-    _URL = URL;
   }
   return self;
 }
-
-#pragma mark - general accessors
 
 - (CGPDFDocumentRef)document;
 {
@@ -165,6 +128,11 @@ FTPDFMD5String(NSString *input) {
 - (CGPDFPageRef)sourcePage;
 {
   return CGPDFDocumentGetPage(self.document, self.sourcePageIndex);
+}
+
+- (CGSize)sourceSize;
+{
+  return self.mediaRectOfSourcePage.size;
 }
 
 - (CGRect)mediaRectOfSourcePage;
@@ -183,138 +151,71 @@ FTPDFMD5String(NSString *input) {
 - (CGSize)targetSize;
 {
   if (CGSizeEqualToSize(_targetSize, CGSizeZero)) {
-    return self.mediaRectOfSourcePage.size;
+    _targetSize = self.sourceSize;
   }
   return _targetSize;
 }
 
 - (void)fitSize:(CGSize)maxSize;
 {
-  CGRect mediaRect = self.mediaRectOfSourcePage;
-  CGFloat scaleFactor = MAX(mediaRect.size.width / maxSize.width, mediaRect.size.height / maxSize.height);
-  self.targetSize = CGSizeMake(ceilf(mediaRect.size.width / scaleFactor), ceilf(mediaRect.size.height / scaleFactor));
+  CGSize sourceSize = self.sourceSize;
+  CGFloat scaleFactor = MAX(sourceSize.width / maxSize.width, sourceSize.height / maxSize.height);
+  self.targetSize = CGSizeMake(ceilf(sourceSize.width / scaleFactor), ceilf(sourceSize.height / scaleFactor));
 }
 
 - (void)fitWidth:(CGFloat)targetWidth;
 {
-  CGRect mediaRect = self.mediaRectOfSourcePage;
-  CGFloat aspectRatio = mediaRect.size.width / mediaRect.size.height;
+  CGSize sourceSize = self.sourceSize;
+  CGFloat aspectRatio = sourceSize.width / sourceSize.height;
   self.targetSize = CGSizeMake(targetWidth, ceilf(targetWidth / aspectRatio));
 }
 
 - (void)fitHeight:(CGFloat)targetHeight;
 {
-  CGRect mediaRect = self.mediaRectOfSourcePage;
-  CGFloat aspectRatio = mediaRect.size.width / mediaRect.size.height;
+  CGSize sourceSize = self.sourceSize;
+  CGFloat aspectRatio = sourceSize.width / sourceSize.height;
   self.targetSize = CGSizeMake(ceilf(targetHeight * aspectRatio), targetHeight);
 }
 
 #pragma mark - drawing
 
-- (UIImage *)image;
+// A PDF does not necessarily have to be used as a mask.
+- (void)canCacheWithIdentifier:(NSString *)identifier;
 {
-  return [self imageWithCacheIdentifier:nil];
+  if (self.isMask) [super canCacheWithIdentifier:identifier];
 }
 
 - (UIImage *)imageWithCacheIdentifier:(NSString *)identifier;
 {
-  if (self.cache && self.isMask && identifier == nil) {
+  if (self.sourcePage == NULL) {
     [NSException raise:@"FTPDFIconRendererCacheError"
-                format:@"A PDF used as mask can’t be cached without a cache identifier."];
+                format:@"Can’t render an image without a source page."];
   }
+  return [super imageWithCacheIdentifier:identifier];
+}
 
-  UIImage *image = nil;
-  NSString *cachePath = nil;
-
-  if (self.cache) {
-    cachePath = [self cachePathWithIdentifier:identifier];
-    image = [self cachedImageAtPath:cachePath];
-    if (image) return image;
-  }
-
-  CGSize targetSize = self.targetSize;
-
-  UIGraphicsBeginImageContextWithOptions(targetSize, false, 0);
-  CGContextRef context = UIGraphicsGetCurrentContext();
-
-  // Flip context, making bottom-left the origin.
-  CGContextConcatCTM(context, CGAffineTransformMake(1, 0, 0, -1, 0, targetSize.height));
-
+- (void)drawImageInContext:(CGContextRef)context;
+{
   // Draw page scaled to the target size.
   CGContextSaveGState(context);
-  CGPDFPageRef page = self.sourcePage;
   CGRect mediaRect = self.mediaRectOfSourcePage;
-  CGContextScaleCTM(context, targetSize.width / mediaRect.size.width, targetSize.height / mediaRect.size.height);
+  CGSize targetSize = self.targetSize;
+  CGContextScaleCTM(context, targetSize.width / mediaRect.size.width,
+                             targetSize.height / mediaRect.size.height);
   CGContextTranslateCTM(context, -mediaRect.origin.x, -mediaRect.origin.y);
-  CGContextDrawPDFPage(context, page);
+  CGContextDrawPDFPage(context, self.sourcePage);
   CGContextRestoreGState(context);
-
-  // Use the target color to fill the image drawn from the PDF page.
-  if (self.isMask) {
-    CGContextSetFillColorWithColor(context, self.targetColor.CGColor);
-    CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
-    CGContextFillRect(context, CGRectMake(0, 0, targetSize.width, targetSize.height));
-  }
-
-  image = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
-
-  if (self.cache) {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-      [UIImagePNGRepresentation(image) writeToFile:cachePath atomically:NO];
-    });
-  }
-
-  return image;
 }
 
-#pragma mark - caching
-
-- (UIImage *)cachedImageAtPath:(NSString *)cachePath;
+- (void)drawTargetColorInContext:(CGContextRef)context;
 {
-  UIImage *image = nil;
-
-  NSData *data = [NSData dataWithContentsOfFile:cachePath];
-  if (data) {
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-    CGImageRef imageRef = CGImageCreateWithPNGDataProvider(provider, NULL, NO, kCGRenderingIntentDefault);
-    CGDataProviderRelease(provider);
-    image = [UIImage imageWithCGImage:imageRef
-                                scale:[[UIScreen mainScreen] scale]
-                          orientation:UIImageOrientationUp];
-    CGImageRelease(imageRef);
-  }
-
-  return image;
+  if (self.isMask) [super drawTargetColorInContext:context];
 }
 
-- (NSString *)cachePathWithIdentifier:(NSString *)identifier;
+- (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier;
 {
-  NSDictionary *attributes = [[NSFileManager new] attributesOfItemAtPath:self.URL.path
-                                                                   error:NULL];
-  // TODO
-  // * Check if this is really reliable, as we have no guarantee the targetSize
-  //   values are integers.
-  // * The method in UIImage+PDF multiplied the size by the scaleFactor, but I
-  //   see no need for the facor at all, because this is cached on a retina
-  //   device or not, so it will always be the same.
-  NSString *cachePath = [NSString stringWithFormat:@"%@-%@-%@-%@-%zd-%@",
-                                                   [self.URL lastPathComponent],
-                                                   attributes[NSFileSize],
-                                                   attributes[NSFileModificationDate],
-                                                   NSStringFromCGSize(self.targetSize),
-                                                   self.sourcePageIndex,
-                                                   identifier ?: @""];
-#if TARGET_IPHONE_SIMULATOR
-  // On the simulator, the cache dir is shared between retina and non-retina
-  // devices, so include the device's main screen scale factor to ensure the
-  // right dimensions are used per device.
-  cachePath = [NSString stringWithFormat:@"%@-%f", cachePath, [[UIScreen mainScreen] scale]];
-#endif
-  cachePath = FTPDFMD5String(cachePath);
-  cachePath = [[[self class] cacheDirectory] stringByAppendingPathComponent:cachePath];
-  cachePath = [cachePath stringByAppendingPathExtension:@"png"];
-  return cachePath;
+  NSString *filename = [super cacheRawFilenameWithIdentifier:identifier];
+  return [NSString stringWithFormat:@"%@-%zd", filename, self.sourcePageIndex];
 }
 
 @end

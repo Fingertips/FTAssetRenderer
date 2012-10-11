@@ -23,6 +23,8 @@
 		51C409A51625F62A00AF7C06 /* FTPDFIconRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409A41625F62A00AF7C06 /* FTPDFIconRendererTests.m */; };
 		51C409BA1626014200AF7C06 /* FTPDFIconRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409B91626014200AF7C06 /* FTPDFIconRenderer.m */; };
 		51C409BD1626038900AF7C06 /* restaurant-icon-mask.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */; };
+		51C409DB1627191600AF7C06 /* FTMaskRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DA1627191600AF7C06 /* FTMaskRenderer.m */; };
+		51C409DF1627240D00AF7C06 /* FTImageMaskRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DE1627240D00AF7C06 /* FTImageMaskRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		51C409B81626014200AF7C06 /* FTPDFIconRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTPDFIconRenderer.h; path = ../Source/FTPDFIconRenderer.h; sourceTree = "<group>"; };
 		51C409B91626014200AF7C06 /* FTPDFIconRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTPDFIconRenderer.m; path = ../Source/FTPDFIconRenderer.m; sourceTree = "<group>"; };
 		51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "restaurant-icon-mask.pdf"; sourceTree = SOURCE_ROOT; };
+		51C409D91627191600AF7C06 /* FTMaskRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTMaskRenderer.h; path = ../Source/FTMaskRenderer.h; sourceTree = "<group>"; };
+		51C409DA1627191600AF7C06 /* FTMaskRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTMaskRenderer.m; path = ../Source/FTMaskRenderer.m; sourceTree = "<group>"; };
+		51C409DD1627240D00AF7C06 /* FTImageMaskRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTImageMaskRenderer.h; path = ../Source/FTImageMaskRenderer.h; sourceTree = "<group>"; };
+		51C409DE1627240D00AF7C06 /* FTImageMaskRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTImageMaskRenderer.m; path = ../Source/FTImageMaskRenderer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,10 @@
 			children = (
 				51C409B81626014200AF7C06 /* FTPDFIconRenderer.h */,
 				51C409B91626014200AF7C06 /* FTPDFIconRenderer.m */,
+				51C409D91627191600AF7C06 /* FTMaskRenderer.h */,
+				51C409DA1627191600AF7C06 /* FTMaskRenderer.m */,
+				51C409DD1627240D00AF7C06 /* FTImageMaskRenderer.h */,
+				51C409DE1627240D00AF7C06 /* FTImageMaskRenderer.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -282,6 +292,8 @@
 				51C409861625F62900AF7C06 /* main.m in Sources */,
 				51C4098A1625F62900AF7C06 /* AppDelegate.m in Sources */,
 				51C409BA1626014200AF7C06 /* FTPDFIconRenderer.m in Sources */,
+				51C409DB1627191600AF7C06 /* FTMaskRenderer.m in Sources */,
+				51C409DF1627240D00AF7C06 /* FTImageMaskRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
