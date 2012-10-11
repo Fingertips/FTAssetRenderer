@@ -1,4 +1,5 @@
 #import "FTPDFIconRenderer.h"
+#import "TargetConditionals.h"
 
 // From: https://gist.github.com/1209911
 #import <CommonCrypto/CommonDigest.h>
