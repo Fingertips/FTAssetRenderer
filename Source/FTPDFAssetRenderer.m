@@ -1,102 +1,26 @@
-#import "FTPDFIconRenderer.h"
+#import "FTPDFAssetRenderer.h"
 
+@implementation FTAssetRenderer (FTPDFAssetRenderer)
 
-@interface FTPDFIconRenderer () {
-  CGPDFDocumentRef _document;
-}
-@end
-
-@implementation FTPDFIconRenderer
-
-#pragma mark - shortcut methods with mask color
-
-+ (FTPDFIconRenderer *)iconRendererForPDFNamed:(NSString *)pdfName
-                                   targetColor:(UIColor *)targetColor;
++ (FTPDFAssetRenderer *)rendererForPDFNamed:(NSString *)pdfName;
 {
   NSURL *URL = [[NSBundle mainBundle] URLForResource:pdfName withExtension:@"pdf"];
   if (URL) {
-    FTPDFIconRenderer *renderer = [[self alloc] initWithURL:URL];
-    renderer.targetColor = targetColor;
+    FTPDFAssetRenderer *renderer = [[FTPDFAssetRenderer alloc] initWithURL:URL];
     return renderer;
   }
   return nil;
 }
 
-+ (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                     fitSize:(CGSize)maxSize
-                 targetColor:(UIColor *)targetColor
-              withIdentifier:(NSString *)identifier;
-{
-  FTPDFIconRenderer *renderer = [self iconRendererForPDFNamed:pdfName
-                                                  targetColor:targetColor];
-  if (renderer) {
-    [renderer fitSize:maxSize];
-    return [renderer imageWithCacheIdentifier:identifier];
-  }
-  return nil;
-}
+@end
 
-+ (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                 targetWidth:(CGFloat)targetWidth
-                 targetColor:(UIColor *)targetColor
-              withIdentifier:(NSString *)identifier;
-{
-  FTPDFIconRenderer *renderer = [self iconRendererForPDFNamed:pdfName
-                                                  targetColor:targetColor];
-  if (renderer) {
-    [renderer fitWidth:targetWidth];
-    return [renderer imageWithCacheIdentifier:identifier];
-  }
-  return nil;
-}
 
-+ (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                targetHeight:(CGFloat)targetHeight
-                 targetColor:(UIColor *)targetColor
-              withIdentifier:(NSString *)identifier;
-{
-  FTPDFIconRenderer *renderer = [self iconRendererForPDFNamed:pdfName
-                                                  targetColor:targetColor];
-  if (renderer) {
-    [renderer fitHeight:targetHeight];
-    return [renderer imageWithCacheIdentifier:identifier];
-  }
-  return nil;
+@interface FTPDFAssetRenderer () {
+  CGPDFDocumentRef _document;
 }
+@end
 
-#pragma mark - shortcut methods without mask color
-
-+ (FTPDFIconRenderer *)iconRendererForPDFNamed:(NSString *)pdfName;
-{
-  return [self iconRendererForPDFNamed:pdfName targetColor:nil];
-}
-
-+ (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                     fitSize:(CGSize)maxSize
-{
-  return [self imageOfPDFNamed:pdfName
-                       fitSize:maxSize
-                   targetColor:nil
-                withIdentifier:nil];
-}
-
-+ (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                 targetWidth:(CGFloat)targetWidth;
-{
-  return [self imageOfPDFNamed:pdfName
-                   targetWidth:targetWidth
-                   targetColor:nil
-                withIdentifier:nil];
-}
-
-+ (UIImage *)imageOfPDFNamed:(NSString *)pdfName
-                targetHeight:(CGFloat)targetHeight;
-{
-  return [self imageOfPDFNamed:pdfName
-                  targetHeight:targetHeight
-                   targetColor:nil
-                withIdentifier:nil];
-}
+@implementation FTPDFAssetRenderer
 
 #pragma mark - init / dealloc
 
@@ -188,7 +112,7 @@
 - (UIImage *)imageWithCacheIdentifier:(NSString *)identifier;
 {
   if (self.sourcePage == NULL) {
-    [NSException raise:@"FTPDFIconRendererCacheError"
+    [NSException raise:@"FTAssetRendererError"
                 format:@"Can’t render an image without a source page."];
   }
   return [super imageWithCacheIdentifier:identifier];

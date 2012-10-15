@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
 
-@interface FTMaskRenderer : NSObject
+@class FTPDFAssetRenderer;
+
+@interface FTAssetRenderer : NSObject
 
 @property (readonly, nonatomic) NSURL *URL;
 @property (assign,   nonatomic) UIColor *targetColor;
@@ -24,6 +26,8 @@
 
 - (void)drawImageInContext:(CGContextRef)context;
 - (void)drawTargetColorInContext:(CGContextRef)context;
+
+- (NSString *)cachePathWithIdentifier:(NSString *)identifier;
 - (void)canCacheWithIdentifier:(NSString *)identifier;
 - (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier;
 

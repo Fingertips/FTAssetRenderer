@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "FTPDFIconRenderer.h"
+#import "FTPDFAssetRenderer.h"
 
 @implementation AppDelegate
 
@@ -14,7 +14,7 @@
   button.frame = CGRectMake(CGRectGetMidX(frame) - 50, 40, 100, 40);
   [self.window addSubview:button];
 
-  FTPDFIconRenderer *renderer = [FTPDFIconRenderer iconRendererForPDFNamed:@"restaurant-icon-mask"];
+  FTPDFAssetRenderer *renderer = [FTPDFAssetRenderer rendererForPDFNamed:@"restaurant-icon-mask"];
   [renderer fitSize:button.bounds.size];
 
   renderer.targetColor = [UIColor blueColor];
@@ -22,13 +22,13 @@
   renderer.targetColor = [UIColor whiteColor];
   [button setImage:[renderer imageWithCacheIdentifier:@"highlighted"] forState:UIControlStateHighlighted];
 
-  UIImage *image = [FTPDFIconRenderer imageOfPDFNamed:@"restaurant-icon-mask"
-                                          targetWidth:frame.size.width
-                                          targetColor:[UIColor greenColor]
-                                       withIdentifier:@"pink is always good"];
-  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-  imageView.frame = CGRectMake(0, 100, imageView.bounds.size.width, imageView.bounds.size.height);
-  [self.window addSubview:imageView];
+//  UIImage *image = [FTPDFAssetRenderer imageOfPDFNamed:@"restaurant-icon-mask"
+//                                          targetWidth:frame.size.width
+//                                          targetColor:[UIColor greenColor]
+//                                       withIdentifier:@"pink is always good"];
+//  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+//  imageView.frame = CGRectMake(0, 100, imageView.bounds.size.width, imageView.bounds.size.height);
+//  [self.window addSubview:imageView];
 
   [self.window makeKeyAndVisible];
   return YES;

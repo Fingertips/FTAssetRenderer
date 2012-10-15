@@ -1,4 +1,4 @@
-#import "FTMaskRenderer.h"
+#import "FTAssetRenderer.h"
 #import "TargetConditionals.h"
 
 // From: https://gist.github.com/1209911
@@ -15,14 +15,14 @@ FTPDFMD5String(NSString *input) {
                                     result[12], result[13], result[14], result[15]];
 }
 
-@interface FTMaskRenderer ()
-
+@interface FTAssetRenderer ()
 
 - (NSString *)cachePathWithIdentifier:(NSString *)identifier;
 - (UIImage *)cachedImageAtPath:(NSString *)cachePath;
+
 @end
 
-@implementation FTMaskRenderer
+@implementation FTAssetRenderer
 
 - (id)initWithURL:(NSURL *)URL;
 {
@@ -33,10 +33,9 @@ FTPDFMD5String(NSString *input) {
   return self;
 }
 
+// Should be overriden by subclass.
 - (CGSize)targetSize;
 {
-  [NSException raise:@"AbstractClassError"
-              format:@"This class is supposed to be subclassed."];
   return CGSizeZero;
 }
 
@@ -104,7 +103,7 @@ FTPDFMD5String(NSString *input) {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     cacheDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-    cacheDirectory = [cacheDirectory stringByAppendingPathComponent:@"__FTPDFIconRenderer_CACHE__"];
+    cacheDirectory = [cacheDirectory stringByAppendingPathComponent:@"__FTAssetRenderer_Cache__"];
     [[NSFileManager new] createDirectoryAtPath:cacheDirectory
                    withIntermediateDirectories:YES
                                     attributes:nil
@@ -116,10 +115,10 @@ FTPDFMD5String(NSString *input) {
 - (void)canCacheWithIdentifier:(NSString *)identifier;
 {
   if (identifier == nil) {
-    [NSException raise:@"FTPDFIconRendererCacheError"
+    [NSException raise:@"FTAssetRendererError"
                 format:@"A masked result can’t be cached without a cache identifier."];
   } else if (self.targetColor == nil) {
-    [NSException raise:@"FTPDFIconRendererCacheError"
+    [NSException raise:@"FTAssetRendererError"
                 format:@"Can’t produce an image from a mask without a target color."];
   }
 }

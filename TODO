@@ -1,0 +1,3 @@
+### FTImageAssetRenderer:
+
+* Should check for @2x image if screen scale is 2.

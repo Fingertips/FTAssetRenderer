@@ -20,11 +20,15 @@
 		51C409991625F62A00AF7C06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C409791625F62900AF7C06 /* UIKit.framework */; };
 		51C4099A1625F62A00AF7C06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C4097B1625F62900AF7C06 /* Foundation.framework */; };
 		51C409A21625F62A00AF7C06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51C409A01625F62A00AF7C06 /* InfoPlist.strings */; };
-		51C409A51625F62A00AF7C06 /* FTPDFIconRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409A41625F62A00AF7C06 /* FTPDFIconRendererTests.m */; };
-		51C409BA1626014200AF7C06 /* FTPDFIconRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409B91626014200AF7C06 /* FTPDFIconRenderer.m */; };
+		51C409A51625F62A00AF7C06 /* FTPDFAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */; };
+		51C409BA1626014200AF7C06 /* FTPDFAssetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */; };
 		51C409BD1626038900AF7C06 /* restaurant-icon-mask.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */; };
-		51C409DB1627191600AF7C06 /* FTMaskRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DA1627191600AF7C06 /* FTMaskRenderer.m */; };
-		51C409DF1627240D00AF7C06 /* FTImageMaskRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DE1627240D00AF7C06 /* FTImageMaskRenderer.m */; };
+		51C409DB1627191600AF7C06 /* FTAssetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DA1627191600AF7C06 /* FTAssetRenderer.m */; };
+		51C409DF1627240D00AF7C06 /* FTImageAssetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */; };
+		51C409E21627339300AF7C06 /* FTAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409E11627339300AF7C06 /* FTAssetRendererTests.m */; };
+		51C409E51627353300AF7C06 /* FTImageAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409E41627353300AF7C06 /* FTImageAssetRendererTests.m */; };
+		51C409E7162C0C1000AF7C06 /* restaurant-icon-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C409E6162C0C1000AF7C06 /* restaurant-icon-mask.png */; };
+		51C409E9162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C409E8162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,15 +59,21 @@
 		51C409971625F62900AF7C06 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		51C4099F1625F62A00AF7C06 /* FTPDFIconRendererTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTPDFIconRendererTests-Info.plist"; sourceTree = "<group>"; };
 		51C409A11625F62A00AF7C06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		51C409A31625F62A00AF7C06 /* FTPDFIconRendererTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTPDFIconRendererTests.h; sourceTree = "<group>"; };
-		51C409A41625F62A00AF7C06 /* FTPDFIconRendererTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTPDFIconRendererTests.m; sourceTree = "<group>"; };
-		51C409B81626014200AF7C06 /* FTPDFIconRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTPDFIconRenderer.h; path = ../Source/FTPDFIconRenderer.h; sourceTree = "<group>"; };
-		51C409B91626014200AF7C06 /* FTPDFIconRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTPDFIconRenderer.m; path = ../Source/FTPDFIconRenderer.m; sourceTree = "<group>"; };
+		51C409A31625F62A00AF7C06 /* FTPDFAssetRendererTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTPDFAssetRendererTests.h; sourceTree = "<group>"; };
+		51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTPDFAssetRendererTests.m; sourceTree = "<group>"; };
+		51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTPDFAssetRenderer.h; path = ../Source/FTPDFAssetRenderer.h; sourceTree = "<group>"; };
+		51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTPDFAssetRenderer.m; path = ../Source/FTPDFAssetRenderer.m; sourceTree = "<group>"; };
 		51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "restaurant-icon-mask.pdf"; sourceTree = SOURCE_ROOT; };
-		51C409D91627191600AF7C06 /* FTMaskRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTMaskRenderer.h; path = ../Source/FTMaskRenderer.h; sourceTree = "<group>"; };
-		51C409DA1627191600AF7C06 /* FTMaskRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTMaskRenderer.m; path = ../Source/FTMaskRenderer.m; sourceTree = "<group>"; };
-		51C409DD1627240D00AF7C06 /* FTImageMaskRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTImageMaskRenderer.h; path = ../Source/FTImageMaskRenderer.h; sourceTree = "<group>"; };
-		51C409DE1627240D00AF7C06 /* FTImageMaskRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTImageMaskRenderer.m; path = ../Source/FTImageMaskRenderer.m; sourceTree = "<group>"; };
+		51C409D91627191600AF7C06 /* FTAssetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTAssetRenderer.h; path = ../Source/FTAssetRenderer.h; sourceTree = "<group>"; };
+		51C409DA1627191600AF7C06 /* FTAssetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTAssetRenderer.m; path = ../Source/FTAssetRenderer.m; sourceTree = "<group>"; };
+		51C409DD1627240D00AF7C06 /* FTImageAssetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTImageAssetRenderer.h; path = ../Source/FTImageAssetRenderer.h; sourceTree = "<group>"; };
+		51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTImageAssetRenderer.m; path = ../Source/FTImageAssetRenderer.m; sourceTree = "<group>"; };
+		51C409E01627339300AF7C06 /* FTAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTAssetRendererTests.h; sourceTree = "<group>"; };
+		51C409E11627339300AF7C06 /* FTAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTAssetRendererTests.m; sourceTree = "<group>"; };
+		51C409E31627353300AF7C06 /* FTImageAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImageAssetRendererTests.h; sourceTree = "<group>"; };
+		51C409E41627353300AF7C06 /* FTImageAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImageAssetRendererTests.m; sourceTree = "<group>"; };
+		51C409E6162C0C1000AF7C06 /* restaurant-icon-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurant-icon-mask.png"; sourceTree = "<group>"; };
+		51C409E8162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurant-icon-mask@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				51C409C5162619C100AF7C06 /* Supporting Files */,
-				51C409A31625F62A00AF7C06 /* FTPDFIconRendererTests.h */,
-				51C409A41625F62A00AF7C06 /* FTPDFIconRendererTests.m */,
+				51C409E01627339300AF7C06 /* FTAssetRendererTests.h */,
+				51C409E11627339300AF7C06 /* FTAssetRendererTests.m */,
+				51C409A31625F62A00AF7C06 /* FTPDFAssetRendererTests.h */,
+				51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */,
+				51C409E31627353300AF7C06 /* FTImageAssetRendererTests.h */,
+				51C409E41627353300AF7C06 /* FTImageAssetRendererTests.m */,
 			);
 			name = Tests;
 			path = ../Tests;
@@ -135,12 +149,12 @@
 		51C409B31626000A00AF7C06 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				51C409B81626014200AF7C06 /* FTPDFIconRenderer.h */,
-				51C409B91626014200AF7C06 /* FTPDFIconRenderer.m */,
-				51C409D91627191600AF7C06 /* FTMaskRenderer.h */,
-				51C409DA1627191600AF7C06 /* FTMaskRenderer.m */,
-				51C409DD1627240D00AF7C06 /* FTImageMaskRenderer.h */,
-				51C409DE1627240D00AF7C06 /* FTImageMaskRenderer.m */,
+				51C409D91627191600AF7C06 /* FTAssetRenderer.h */,
+				51C409DA1627191600AF7C06 /* FTAssetRenderer.m */,
+				51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */,
+				51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */,
+				51C409DD1627240D00AF7C06 /* FTImageAssetRenderer.h */,
+				51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -148,6 +162,8 @@
 		51C409C21626044E00AF7C06 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				51C409E6162C0C1000AF7C06 /* restaurant-icon-mask.png */,
+				51C409E8162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png */,
 				51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */,
 				51C409881625F62900AF7C06 /* AppDelegate.h */,
 				51C409891625F62900AF7C06 /* AppDelegate.m */,
@@ -255,6 +271,8 @@
 				51C4098E1625F62900AF7C06 /* Default@2x.png in Resources */,
 				51C409901625F62900AF7C06 /* Default-568h@2x.png in Resources */,
 				51C409BD1626038900AF7C06 /* restaurant-icon-mask.pdf in Resources */,
+				51C409E7162C0C1000AF7C06 /* restaurant-icon-mask.png in Resources */,
+				51C409E9162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,9 +309,9 @@
 			files = (
 				51C409861625F62900AF7C06 /* main.m in Sources */,
 				51C4098A1625F62900AF7C06 /* AppDelegate.m in Sources */,
-				51C409BA1626014200AF7C06 /* FTPDFIconRenderer.m in Sources */,
-				51C409DB1627191600AF7C06 /* FTMaskRenderer.m in Sources */,
-				51C409DF1627240D00AF7C06 /* FTImageMaskRenderer.m in Sources */,
+				51C409BA1626014200AF7C06 /* FTPDFAssetRenderer.m in Sources */,
+				51C409DB1627191600AF7C06 /* FTAssetRenderer.m in Sources */,
+				51C409DF1627240D00AF7C06 /* FTImageAssetRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +319,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51C409A51625F62A00AF7C06 /* FTPDFIconRendererTests.m in Sources */,
+				51C409A51625F62A00AF7C06 /* FTPDFAssetRendererTests.m in Sources */,
+				51C409E21627339300AF7C06 /* FTAssetRendererTests.m in Sources */,
+				51C409E51627353300AF7C06 /* FTImageAssetRendererTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
