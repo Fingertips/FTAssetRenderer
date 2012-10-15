@@ -50,4 +50,4 @@ Based on work by:
 * [Jeffrey Sambells](https://github.com/iamamused) - http://jeffreysambells.com/2012/03/02/beating-the-20mb-size-limit-ipad-retina-displays
 * [Ole Zorn](https://github.com/omz) - https://gist.github.com/1102091
 
-Thanks to [Peter Steinberger](https://github.com/steipete) (of [PSPDFKit](http://pspdfkit.com) fame) for his invaluable advice during the creation of this lib.
+Thanks to [Peter Steinberger](https://github.com/steipete) (of [PSPDFKit](http://pspdfkit.com) fame) for his invaluable advice during the creation of this library.
