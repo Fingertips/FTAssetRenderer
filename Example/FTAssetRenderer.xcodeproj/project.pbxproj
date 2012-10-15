@@ -42,22 +42,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		51C409751625F62900AF7C06 /* FTPDFIconRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPDFIconRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C409751625F62900AF7C06 /* FTAssetRenderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTAssetRenderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C409791625F62900AF7C06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		51C4097B1625F62900AF7C06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		51C4097D1625F62900AF7C06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		51C409811625F62900AF7C06 /* FTPDFIconRenderer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTPDFIconRenderer-Info.plist"; sourceTree = "<group>"; };
+		51C409811625F62900AF7C06 /* FTAssetRenderer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTAssetRenderer-Info.plist"; sourceTree = "<group>"; };
 		51C409831625F62900AF7C06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		51C409851625F62900AF7C06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		51C409871625F62900AF7C06 /* FTPDFIconRenderer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FTPDFIconRenderer-Prefix.pch"; sourceTree = "<group>"; };
+		51C409871625F62900AF7C06 /* FTAssetRenderer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FTAssetRenderer-Prefix.pch"; sourceTree = "<group>"; };
 		51C409881625F62900AF7C06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		51C409891625F62900AF7C06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		51C4098B1625F62900AF7C06 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		51C4098D1625F62900AF7C06 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		51C4098F1625F62900AF7C06 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		51C409961625F62900AF7C06 /* FTPDFIconRendererTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FTPDFIconRendererTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C409961625F62900AF7C06 /* FTAssetRendererTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FTAssetRendererTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C409971625F62900AF7C06 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		51C4099F1625F62A00AF7C06 /* FTPDFIconRendererTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTPDFIconRendererTests-Info.plist"; sourceTree = "<group>"; };
+		51C4099F1625F62A00AF7C06 /* FTAssetRendererTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTAssetRendererTests-Info.plist"; sourceTree = "<group>"; };
 		51C409A11625F62A00AF7C06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		51C409A31625F62A00AF7C06 /* FTPDFAssetRendererTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTPDFAssetRendererTests.h; sourceTree = "<group>"; };
 		51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTPDFAssetRendererTests.m; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 		51C409761625F62900AF7C06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				51C409751625F62900AF7C06 /* FTPDFIconRenderer.app */,
-				51C409961625F62900AF7C06 /* FTPDFIconRendererTests.octest */,
+				51C409751625F62900AF7C06 /* FTAssetRenderer.app */,
+				51C409961625F62900AF7C06 /* FTAssetRendererTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,10 +175,10 @@
 		51C409C41626047E00AF7C06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				51C409811625F62900AF7C06 /* FTPDFIconRenderer-Info.plist */,
+				51C409811625F62900AF7C06 /* FTAssetRenderer-Info.plist */,
 				51C409821625F62900AF7C06 /* InfoPlist.strings */,
 				51C409851625F62900AF7C06 /* main.m */,
-				51C409871625F62900AF7C06 /* FTPDFIconRenderer-Prefix.pch */,
+				51C409871625F62900AF7C06 /* FTAssetRenderer-Prefix.pch */,
 				51C4098B1625F62900AF7C06 /* Default.png */,
 				51C4098D1625F62900AF7C06 /* Default@2x.png */,
 				51C4098F1625F62900AF7C06 /* Default-568h@2x.png */,
@@ -189,7 +189,7 @@
 		51C409C5162619C100AF7C06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				51C4099F1625F62A00AF7C06 /* FTPDFIconRendererTests-Info.plist */,
+				51C4099F1625F62A00AF7C06 /* FTAssetRendererTests-Info.plist */,
 				51C409A01625F62A00AF7C06 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -198,9 +198,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		51C409741625F62900AF7C06 /* FTPDFIconRenderer */ = {
+		51C409741625F62900AF7C06 /* FTAssetRenderer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51C409A81625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTPDFIconRenderer" */;
+			buildConfigurationList = 51C409A81625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTAssetRenderer" */;
 			buildPhases = (
 				51C409711625F62900AF7C06 /* Sources */,
 				51C409721625F62900AF7C06 /* Frameworks */,
@@ -210,14 +210,14 @@
 			);
 			dependencies = (
 			);
-			name = FTPDFIconRenderer;
+			name = FTAssetRenderer;
 			productName = FTPDFIconRenderer;
-			productReference = 51C409751625F62900AF7C06 /* FTPDFIconRenderer.app */;
+			productReference = 51C409751625F62900AF7C06 /* FTAssetRenderer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		51C409951625F62900AF7C06 /* FTPDFIconRendererTests */ = {
+		51C409951625F62900AF7C06 /* FTAssetRendererTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51C409AB1625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTPDFIconRendererTests" */;
+			buildConfigurationList = 51C409AB1625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTAssetRendererTests" */;
 			buildPhases = (
 				51C409911625F62900AF7C06 /* Sources */,
 				51C409921625F62900AF7C06 /* Frameworks */,
@@ -229,9 +229,9 @@
 			dependencies = (
 				51C4099C1625F62A00AF7C06 /* PBXTargetDependency */,
 			);
-			name = FTPDFIconRendererTests;
+			name = FTAssetRendererTests;
 			productName = FTPDFIconRendererTests;
-			productReference = 51C409961625F62900AF7C06 /* FTPDFIconRendererTests.octest */;
+			productReference = 51C409961625F62900AF7C06 /* FTAssetRendererTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -243,7 +243,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Fingertips BV";
 			};
-			buildConfigurationList = 51C4096F1625F62900AF7C06 /* Build configuration list for PBXProject "FTPDFIconRenderer" */;
+			buildConfigurationList = 51C4096F1625F62900AF7C06 /* Build configuration list for PBXProject "FTAssetRenderer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -255,8 +255,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				51C409741625F62900AF7C06 /* FTPDFIconRenderer */,
-				51C409951625F62900AF7C06 /* FTPDFIconRendererTests */,
+				51C409741625F62900AF7C06 /* FTAssetRenderer */,
+				51C409951625F62900AF7C06 /* FTAssetRendererTests */,
 			);
 		};
 /* End PBXProject section */
@@ -330,7 +330,7 @@
 /* Begin PBXTargetDependency section */
 		51C4099C1625F62A00AF7C06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 51C409741625F62900AF7C06 /* FTPDFIconRenderer */;
+			target = 51C409741625F62900AF7C06 /* FTAssetRenderer */;
 			targetProxy = 51C4099B1625F62A00AF7C06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -410,8 +410,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FTPDFIconRenderer-Prefix.pch";
-				INFOPLIST_FILE = "FTPDFIconRenderer-Info.plist";
+				GCC_PREFIX_HEADER = "FTAssetRenderer-Prefix.pch";
+				INFOPLIST_FILE = "FTAssetRenderer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,8 +421,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FTPDFIconRenderer-Prefix.pch";
-				INFOPLIST_FILE = "FTPDFIconRenderer-Info.plist";
+				GCC_PREFIX_HEADER = "FTAssetRenderer-Prefix.pch";
+				INFOPLIST_FILE = "FTAssetRenderer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -431,14 +431,14 @@
 		51C409AC1625F62A00AF7C06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTPDFIconRenderer.app/FTPDFIconRenderer";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTAssetRenderer.app/FTAssetRenderer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "../Tests/FTPDFIconRendererTests-Info.plist";
+				INFOPLIST_FILE = "../Tests/FTAssetRendererTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -448,14 +448,14 @@
 		51C409AD1625F62A00AF7C06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTPDFIconRenderer.app/FTPDFIconRenderer";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTAssetRenderer.app/FTAssetRenderer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "../Tests/FTPDFIconRendererTests-Info.plist";
+				INFOPLIST_FILE = "../Tests/FTAssetRendererTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -465,7 +465,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		51C4096F1625F62900AF7C06 /* Build configuration list for PBXProject "FTPDFIconRenderer" */ = {
+		51C4096F1625F62900AF7C06 /* Build configuration list for PBXProject "FTAssetRenderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				51C409A61625F62A00AF7C06 /* Debug */,
@@ -474,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		51C409A81625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTPDFIconRenderer" */ = {
+		51C409A81625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTAssetRenderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				51C409A91625F62A00AF7C06 /* Debug */,
@@ -483,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		51C409AB1625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTPDFIconRendererTests" */ = {
+		51C409AB1625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTAssetRendererTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				51C409AC1625F62A00AF7C06 /* Debug */,
