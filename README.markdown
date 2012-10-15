@@ -3,7 +3,7 @@
 Create image assets, at runtime, in _any_ color when used as mask and/or at _any_ resolution when it’s a PDF.
 
 
-#### Install
+### Install
 
 If you’re using [CocoaPods](https://github.com/CocoaPods/CocoaPods), add the following to your Podfile:
 
@@ -14,7 +14,7 @@ pod 'FTAssetRenderer'
 Otherwise, simply add the files from the `Source` dir to your project.
 
 
-#### Usage
+### Usage
 
 If you have a bitmap image that’s used as a mask to generate images in different colors, then you can use it like so:
 
@@ -42,7 +42,7 @@ In the above example, an explicit width and height is given for the result image
 By default, the resulting image is cached on disk. For each different target color, a different cache identifier should be used. For instance, for controls you might use identifiers such as `normal`, `highlighted`, and `selected`.
 
 
-#### Acknowledgements
+### Acknowledgements
 
 Based on work by:
 * [Oliver Drobnik](https://github.com/Cocoanetics) - http://www.cocoanetics.com/2010/06/rendering-pdf-is-easier-than-you-thought
