@@ -1,8 +1,3 @@
-// Based on work by:
-// * Nigel Timothy Barber - https://github.com/mindbrix/UIImage-PDF
-// * Jeffrey Sambells - http://jeffreysambells.com/2012/03/02/beating-the-20mb-size-limit-ipad-retina-displays
-// * Ole Zorn - https://gist.github.com/1102091
-
 #import "FTAssetRenderer.h"
 
 // This object is supposed to be short-lived, because an open PDF document can
