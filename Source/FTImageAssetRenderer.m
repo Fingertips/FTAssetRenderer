@@ -59,7 +59,7 @@
 {
   UIImage *source = self.sourceImage;
   CGRect rect = CGRectMake(0, 0, source.size.width, source.size.height);
-  CGContextClipToMask(context, rect, [source CGImage]);
+  CGContextDrawImage(context, rect, [source CGImage]);
 }
 
 @end
