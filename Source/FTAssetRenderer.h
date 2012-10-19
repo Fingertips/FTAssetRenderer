@@ -5,8 +5,8 @@
 @interface FTAssetRenderer : NSObject
 
 @property (readonly, nonatomic) NSURL *URL;
-@property (assign,   nonatomic) UIColor *targetColor;
-@property (assign,   nonatomic) BOOL cache;
+@property (nonatomic) UIColor *targetColor;
+@property (assign, nonatomic) BOOL cache;
 
 + (NSString *)cacheDirectory;
 
