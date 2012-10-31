@@ -27,7 +27,7 @@ UIImage *result = [renderer imageWithCacheIdentifier:@"red"];
 If, on the other hand, you have a vector based PDF image, you should generally indicate the size at which it should be rendered as well:
 
 ```objc
-FTPDFAssetRenderer *renderer = [FTAssetRenderer rendererForPDFNamed:@"my-scalable-icon"];
+FTPDFAssetRenderer *renderer = [FTPDFAssetRenderer rendererForPDFNamed:@"my-scalable-icon"];
 renderer.targetColor = [UIColor blueColor];
 renderer.targetSize = CGSizeMake(123, 456);
 UIImage *result = [renderer imageWithCacheIdentifier:@"without-preserving-aspect-ratio"];
