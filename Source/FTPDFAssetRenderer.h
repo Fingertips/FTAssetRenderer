@@ -1,13 +1,15 @@
 #import "FTAssetRenderer.h"
 
-// This object is supposed to be short-lived, because an open PDF document can
-// consume quite some memory.
+
+NS_ASSUME_NONNULL_BEGIN
+
+// This object is supposed to be short-lived, because an open PDF document can consume quite some memory.
 @interface FTPDFAssetRenderer : FTAssetRenderer
 
-@property (assign,   nonatomic) size_t sourcePageIndex;
-@property (readonly, nonatomic) CGPDFPageRef sourcePage;
-@property (assign,   nonatomic) CGSize targetSize;
-@property (readonly, nonatomic) BOOL isMask;
+@property (nonatomic, assign) size_t sourcePageIndex;
+@property (nonatomic, readonly) CGPDFPageRef sourcePage;
+@property (nonatomic, assign) CGSize targetSize;
+@property (nonatomic, readonly) BOOL isMask;
 
 - (void)fitSize:(CGSize)maxSize;
 - (void)fitWidth:(CGFloat)targetWidth;
@@ -20,3 +22,5 @@
 + (FTPDFAssetRenderer *)rendererForPDFNamed:(NSString *)pdfName;
 
 @end
+
+NS_ASSUME_NONNULL_END

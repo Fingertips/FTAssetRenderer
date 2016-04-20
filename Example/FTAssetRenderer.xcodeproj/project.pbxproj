@@ -126,10 +126,10 @@
 			children = (
 				51C409D91627191600AF7C06 /* FTAssetRenderer.h */,
 				51C409DA1627191600AF7C06 /* FTAssetRenderer.m */,
-				51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */,
-				51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */,
 				51C409DD1627240D00AF7C06 /* FTImageAssetRenderer.h */,
 				51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */,
+				51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */,
+				51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";

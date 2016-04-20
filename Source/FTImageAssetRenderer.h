@@ -1,8 +1,11 @@
 #import "FTAssetRenderer.h"
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface FTImageAssetRenderer : FTAssetRenderer
 
-@property (readonly, nonatomic) UIImage *sourceImage;
+@property (nonatomic, readonly, nullable) UIImage *sourceImage;
 
 @end
 
@@ -11,3 +14,5 @@
 + (FTImageAssetRenderer *)rendererForImageNamed:(NSString *)imageName withExtension:(NSString *)extName;
 
 @end
+
+NS_ASSUME_NONNULL_END
