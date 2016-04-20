@@ -33,6 +33,11 @@ static NSString * FTPDFMD5String(NSString *input) {
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithURL:nil];
+}
+
 #pragma mark - FTAssetRenderer
 
 // Should be overriden by subclass.

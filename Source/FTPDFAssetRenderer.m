@@ -18,6 +18,7 @@
 
 @interface FTPDFAssetRenderer () {
     CGPDFDocumentRef _document;
+    NSData *_data;
 }
 @end
 
@@ -35,11 +36,29 @@
         return nil;
     }
 
+    [self _commonPDFAssetRendererInit];
+
+    return self;
+}
+
+- (instancetype)initWithData:(NSData *)data
+{
+    self = [super initWithURL:nil];
+    if (self == nil) {
+        return nil;
+    }
+
+    [self _commonPDFAssetRendererInit];
+    _data = data;
+    
+    return self;
+}
+
+- (void)_commonPDFAssetRendererInit
+{
     _document = NULL;
     _sourcePageIndex = 1;
     _targetSize = CGSizeZero;
-
-    return self;
 }
 
 - (void)dealloc
@@ -98,7 +117,15 @@
 - (CGPDFDocumentRef)document
 {
     if (_document == NULL) {
-        _document = CGPDFDocumentCreateWithURL((__bridge CFURLRef)self.URL);
+        NSAssert(self.URL != nil || _data != nil, @"PDF Asset Renderer needs either a valid URL or NSData object");
+        if (self.URL != nil) {
+            _document = CGPDFDocumentCreateWithURL((__bridge CFURLRef)self.URL);
+        } else if (_data != nil) {
+            CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)_data);
+            _document = CGPDFDocumentCreateWithProvider(provider);
+            CGDataProviderRelease(provider);
+            _data = nil;
+        }
     }
 
     return _document;

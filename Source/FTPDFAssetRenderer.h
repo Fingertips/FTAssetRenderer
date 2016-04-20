@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGSize targetSize;
 @property (nonatomic, readonly) BOOL isMask;
 
+- (instancetype)initWithURL:(NSURL * _Nullable)URL NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithData:(NSData *)data NS_DESIGNATED_INITIALIZER;
+
 - (void)fitSize:(CGSize)maxSize;
 - (void)fitWidth:(CGFloat)targetWidth;
 - (void)fitHeight:(CGFloat)targetHeight;

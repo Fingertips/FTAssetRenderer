@@ -104,4 +104,16 @@
     XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(100 * scale, 50 * scale), image.size));
 }
 
+#pragma mark - data
+
+- (void)testRendererWithNSData
+{
+    NSURL *URL = [[NSBundle mainBundle] URLForResource:@"restaurant-icon-mask" withExtension:@"pdf"];
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    FTPDFAssetRenderer *dataRenderer = [[FTPDFAssetRenderer alloc] initWithData:data];
+
+    XCTAssertTrue(CGSizeEqualToSize(dataRenderer.targetSize, CGSizeMake(88, 88)));
+    XCTAssertTrue(CGSizeEqualToSize(dataRenderer.image.size, CGSizeMake(88, 88)));
+}
+
 @end

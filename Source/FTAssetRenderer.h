@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)cacheDirectory;
 
-- (instancetype)initWithURL:(NSURL * _Nullable)URL;
+- (instancetype)initWithURL:(NSURL * _Nullable)URL NS_DESIGNATED_INITIALIZER;
 
 // When caching is enabled and the image is used as a mask then an identifier
 // *has* to be specified.
