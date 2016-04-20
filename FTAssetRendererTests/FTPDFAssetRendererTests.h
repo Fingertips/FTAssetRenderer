@@ -1,7 +1,7 @@
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "FTPDFAssetRenderer.h"
 
-@interface FTPDFAssetRendererTests : SenTestCase
+@interface FTPDFAssetRendererTests : XCTestCase
 
 @property (nonatomic) FTPDFAssetRenderer *renderer;
 
