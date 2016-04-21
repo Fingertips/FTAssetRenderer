@@ -98,7 +98,7 @@
     self.renderer.targetSize = CGSizeMake(100, 50);
     NSString *path = [self.renderer cachePathWithIdentifier:nil];
     [self.renderer image];
-    sleep(1.5); // lame, should check if file exists with timeout
+    sleep(2); // lame, should check if file exists with timeout
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     CGFloat scale = [[UIScreen mainScreen] scale];
     XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(100 * scale, 50 * scale), image.size));

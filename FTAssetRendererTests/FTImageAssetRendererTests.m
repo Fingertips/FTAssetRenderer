@@ -42,7 +42,7 @@
 {
     NSString *path = [self.renderer cachePathWithIdentifier:@"test"];
     [self.renderer imageWithCacheIdentifier:@"test"];
-    sleep(1.5); // lame, should check if file exists with timeout
+    sleep(2); // lame, should check if file exists with timeout
     UIImage *result = [UIImage imageWithContentsOfFile:path];
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize sourceSize = self.renderer.sourceImage.size;

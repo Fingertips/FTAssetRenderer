@@ -27,13 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface FTAssetRenderer (FTPrivate)
+@interface FTAssetRenderer (FTProtected)
 
 - (void)drawImageInContext:(CGContextRef)context;
 - (void)drawTargetColorInContext:(CGContextRef)context;
 
+- (void)assertCanCacheWithIdentifier:(NSString * _Nullable)identifier;
 - (NSString *)cachePathWithIdentifier:(NSString * _Nullable)identifier;
-- (void)canCacheWithIdentifier:(NSString * _Nullable)identifier;
 - (NSString *)cacheRawFilenameWithIdentifier:(NSString * _Nullable)identifier;
 
 @end

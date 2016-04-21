@@ -1,5 +1,18 @@
 #import "FTPDFAssetRenderer.h"
 
+// From: https://gist.github.com/1209911
+#import <CommonCrypto/CommonDigest.h>
+static NSString * FTPDFMD5String(NSData *input) {
+    unsigned char result[16];
+    CC_MD5(input.bytes, (CC_LONG)input.length, result);
+    return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+            result[0],  result[1],  result[2],  result[3],
+            result[4],  result[5],  result[6],  result[7],
+            result[8],  result[9],  result[10], result[11],
+            result[12], result[13], result[14], result[15]];
+}
+
+
 @implementation FTAssetRenderer (FTPDFAssetRenderer)
 
 + (FTPDFAssetRenderer *)rendererForPDFNamed:(NSString *)pdfName
@@ -18,8 +31,11 @@
 
 @interface FTPDFAssetRenderer () {
     CGPDFDocumentRef _document;
-    NSData *_data;
+    NSString *_cachePathIdentifier;
 }
+
+@property (nonatomic, readonly, nullable) NSData *data;
+
 @end
 
 @implementation FTPDFAssetRenderer
@@ -28,7 +44,6 @@
 
 #pragma mark - Lifecycle
 
-// Don't open the PDF yet, as the user may want the actual work to be done on a background thread.
 - (instancetype)initWithURL:(NSURL *)URL
 {
     self = [super initWithURL:URL];
@@ -56,6 +71,7 @@
 
 - (void)_commonPDFAssetRendererInit
 {
+    // Don't open the PDF yet, as the user may want the actual work to be done on a background thread.
     _document = NULL;
     _sourcePageIndex = 1;
     _targetSize = CGSizeZero;
@@ -69,10 +85,15 @@
 #pragma mark - FTAssetRenderer
 
 // A PDF does not necessarily have to be used as a mask.
-- (void)canCacheWithIdentifier:(NSString *)identifier
+- (void)assertCanCacheWithIdentifier:(NSString *)identifier
 {
+    if (self.URL == nil && self.cachePathIdentifier == nil) {
+        [NSException raise:@"FTAssetRendererError"
+                    format:@"An image can't be cached without a valid cache path identifier."];
+    }
+
     if (self.isMask) {
-        [super canCacheWithIdentifier:identifier];
+        [super assertCanCacheWithIdentifier:identifier];
     }
 }
 
@@ -109,6 +130,10 @@
 - (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier
 {
     NSString *filename = [super cacheRawFilenameWithIdentifier:identifier];
+    if (self.URL == nil) {
+        filename = [filename stringByAppendingFormat:@"-%@", self.cachePathIdentifier];
+    }
+
     return [NSString stringWithFormat:@"%@-%zd", filename, self.sourcePageIndex];
 }
 
@@ -117,14 +142,13 @@
 - (CGPDFDocumentRef)document
 {
     if (_document == NULL) {
-        NSAssert(self.URL != nil || _data != nil, @"PDF Asset Renderer needs either a valid URL or NSData object");
+        NSAssert(self.URL != nil || self.data != nil, @"PDF Asset Renderer needs either a valid URL or NSData object");
         if (self.URL != nil) {
             _document = CGPDFDocumentCreateWithURL((__bridge CFURLRef)self.URL);
-        } else if (_data != nil) {
-            CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)_data);
+        } else if (self.data != nil) {
+            CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)self.data);
             _document = CGPDFDocumentCreateWithProvider(provider);
             CGDataProviderRelease(provider);
-            _data = nil;
         }
     }
 
@@ -180,6 +204,17 @@
     CGSize sourceSize = self.sourceSize;
     CGFloat aspectRatio = sourceSize.width / sourceSize.height;
     self.targetSize = CGSizeMake((CGFloat)ceil(targetHeight * aspectRatio), targetHeight);
+}
+
+#pragma mark - Private
+
+- (NSString *)cachePathIdentifier
+{
+    if (_cachePathIdentifier == nil && self.data != nil) {
+        _cachePathIdentifier = FTPDFMD5String(self.data);
+    }
+
+    return _cachePathIdentifier;
 }
 
 @end

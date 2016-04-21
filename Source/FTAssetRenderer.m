@@ -15,7 +15,6 @@ static NSString * FTPDFMD5String(NSString *input) {
 }
 
 
-
 @implementation FTAssetRenderer
 
 #pragma mark - Lifecycle
@@ -69,7 +68,7 @@ static NSString * FTPDFMD5String(NSString *input) {
 - (UIImage *)imageWithCacheIdentifier:(NSString *)identifier
 {
     if (self.useCache) {
-        [self canCacheWithIdentifier:identifier];
+        [self assertCanCacheWithIdentifier:identifier];
     }
 
     UIImage *image = nil;
@@ -105,7 +104,7 @@ static NSString * FTPDFMD5String(NSString *input) {
     return image;
 }
 
-#pragma mark - Private
+#pragma mark - Protected
 
 - (void)drawImageInContext:(__unused CGContextRef)context
 {
@@ -121,7 +120,7 @@ static NSString * FTPDFMD5String(NSString *input) {
     CGContextFillRect(context, CGRectMake(0, 0, targetSize.width, targetSize.height));
 }
 
-- (void)canCacheWithIdentifier:(NSString *)identifier
+- (void)assertCanCacheWithIdentifier:(NSString *)identifier
 {
     if (identifier == nil) {
         [NSException raise:@"FTAssetRendererError"
@@ -131,6 +130,35 @@ static NSString * FTPDFMD5String(NSString *input) {
                     format:@"Can’t produce an image from a mask without a target color."];
     }
 }
+
+- (NSString *)cachePathWithIdentifier:(NSString *)identifier
+{
+    NSString *cachePath = [self cacheRawFilenameWithIdentifier:identifier];
+#if TARGET_IPHONE_SIMULATOR
+    // On the simulator, the cache dir is shared between retina and non-retina
+    // devices, so include the device's main screen scale factor to ensure the
+    // right dimensions are used per device.
+    cachePath = [NSString stringWithFormat:@"%@-%f", cachePath, [[UIScreen mainScreen] scale]];
+#endif
+    cachePath = FTPDFMD5String(cachePath);
+    cachePath = [[[self class] cacheDirectory] stringByAppendingPathComponent:cachePath];
+    cachePath = [cachePath stringByAppendingPathExtension:@"png"];
+    return cachePath;
+}
+
+- (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier
+{
+    NSDictionary *attributes = [[NSFileManager new] attributesOfItemAtPath:self.URL.path error:NULL];
+    NSString *filename = [NSString stringWithFormat:@"%@-%@-%@-%@-%@",
+                          self.URL.lastPathComponent ?: @"",
+                          attributes[NSFileSize] ?: @"",
+                          attributes[NSFileModificationDate] ?: @"",
+                          NSStringFromCGSize(self.targetSize),
+                          identifier ?: @""];
+    return filename;
+}
+
+#pragma mark - Private
 
 - (UIImage *)cachedImageAtPath:(NSString *)cachePath
 {
@@ -148,33 +176,6 @@ static NSString * FTPDFMD5String(NSString *input) {
     }
 
     return image;
-}
-
-- (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier
-{
-    NSDictionary *attributes = [[NSFileManager new] attributesOfItemAtPath:self.URL.path error:NULL];
-    NSString *filename = [NSString stringWithFormat:@"%@-%@-%@-%@-%@",
-                          [self.URL lastPathComponent],
-                          attributes[NSFileSize],
-                          attributes[NSFileModificationDate],
-                          NSStringFromCGSize(self.targetSize),
-                          identifier ?: @""];
-    return filename;
-}
-
-- (NSString *)cachePathWithIdentifier:(NSString *)identifier
-{
-    NSString *cachePath = [self cacheRawFilenameWithIdentifier:identifier];
-#if TARGET_IPHONE_SIMULATOR
-    // On the simulator, the cache dir is shared between retina and non-retina
-    // devices, so include the device's main screen scale factor to ensure the
-    // right dimensions are used per device.
-    cachePath = [NSString stringWithFormat:@"%@-%f", cachePath, [[UIScreen mainScreen] scale]];
-#endif
-    cachePath = FTPDFMD5String(cachePath);
-    cachePath = [[[self class] cacheDirectory] stringByAppendingPathComponent:cachePath];
-    cachePath = [cachePath stringByAppendingPathExtension:@"png"];
-    return cachePath;
 }
 
 @end
