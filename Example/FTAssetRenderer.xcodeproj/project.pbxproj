@@ -16,28 +16,24 @@
 		51C4098C1625F62900AF7C06 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C4098B1625F62900AF7C06 /* Default.png */; };
 		51C4098E1625F62900AF7C06 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C4098D1625F62900AF7C06 /* Default@2x.png */; };
 		51C409901625F62900AF7C06 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C4098F1625F62900AF7C06 /* Default-568h@2x.png */; };
-		51C409981625F62A00AF7C06 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C409971625F62900AF7C06 /* SenTestingKit.framework */; };
-		51C409991625F62A00AF7C06 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C409791625F62900AF7C06 /* UIKit.framework */; };
-		51C4099A1625F62A00AF7C06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C4097B1625F62900AF7C06 /* Foundation.framework */; };
-		51C409A21625F62A00AF7C06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51C409A01625F62A00AF7C06 /* InfoPlist.strings */; };
-		51C409A51625F62A00AF7C06 /* FTPDFAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */; };
 		51C409BA1626014200AF7C06 /* FTPDFAssetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */; };
 		51C409BD1626038900AF7C06 /* restaurant-icon-mask.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */; };
 		51C409DB1627191600AF7C06 /* FTAssetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DA1627191600AF7C06 /* FTAssetRenderer.m */; };
 		51C409DF1627240D00AF7C06 /* FTImageAssetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */; };
-		51C409E21627339300AF7C06 /* FTAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409E11627339300AF7C06 /* FTAssetRendererTests.m */; };
-		51C409E51627353300AF7C06 /* FTImageAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C409E41627353300AF7C06 /* FTImageAssetRendererTests.m */; };
 		51C409E7162C0C1000AF7C06 /* restaurant-icon-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C409E6162C0C1000AF7C06 /* restaurant-icon-mask.png */; };
 		51C409E9162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C409E8162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png */; };
+		9B6203561CC7C228005020F4 /* FTAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6203511CC7C228005020F4 /* FTAssetRendererTests.m */; };
+		9B6203571CC7C228005020F4 /* FTImageAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6203531CC7C228005020F4 /* FTImageAssetRendererTests.m */; };
+		9B6203581CC7C228005020F4 /* FTPDFAssetRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6203551CC7C228005020F4 /* FTPDFAssetRendererTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		51C4099B1625F62A00AF7C06 /* PBXContainerItemProxy */ = {
+		9B62034B1CC7C1FB005020F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 51C4096C1625F62900AF7C06 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 51C409741625F62900AF7C06;
-			remoteInfo = FTPDFIconRenderer;
+			remoteInfo = FTAssetRenderer;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,12 +51,6 @@
 		51C4098B1625F62900AF7C06 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		51C4098D1625F62900AF7C06 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		51C4098F1625F62900AF7C06 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		51C409961625F62900AF7C06 /* FTAssetRendererTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FTAssetRendererTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		51C409971625F62900AF7C06 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		51C4099F1625F62A00AF7C06 /* FTAssetRendererTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FTAssetRendererTests-Info.plist"; sourceTree = "<group>"; };
-		51C409A11625F62A00AF7C06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		51C409A31625F62A00AF7C06 /* FTPDFAssetRendererTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTPDFAssetRendererTests.h; sourceTree = "<group>"; };
-		51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTPDFAssetRendererTests.m; sourceTree = "<group>"; };
 		51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTPDFAssetRenderer.h; path = ../Source/FTPDFAssetRenderer.h; sourceTree = "<group>"; };
 		51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTPDFAssetRenderer.m; path = ../Source/FTPDFAssetRenderer.m; sourceTree = "<group>"; };
 		51C409BC1626038900AF7C06 /* restaurant-icon-mask.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "restaurant-icon-mask.pdf"; sourceTree = SOURCE_ROOT; };
@@ -68,12 +58,16 @@
 		51C409DA1627191600AF7C06 /* FTAssetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTAssetRenderer.m; path = ../Source/FTAssetRenderer.m; sourceTree = "<group>"; };
 		51C409DD1627240D00AF7C06 /* FTImageAssetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTImageAssetRenderer.h; path = ../Source/FTImageAssetRenderer.h; sourceTree = "<group>"; };
 		51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTImageAssetRenderer.m; path = ../Source/FTImageAssetRenderer.m; sourceTree = "<group>"; };
-		51C409E01627339300AF7C06 /* FTAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTAssetRendererTests.h; sourceTree = "<group>"; };
-		51C409E11627339300AF7C06 /* FTAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTAssetRendererTests.m; sourceTree = "<group>"; };
-		51C409E31627353300AF7C06 /* FTImageAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImageAssetRendererTests.h; sourceTree = "<group>"; };
-		51C409E41627353300AF7C06 /* FTImageAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImageAssetRendererTests.m; sourceTree = "<group>"; };
 		51C409E6162C0C1000AF7C06 /* restaurant-icon-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurant-icon-mask.png"; sourceTree = "<group>"; };
 		51C409E8162C0C8A00AF7C06 /* restaurant-icon-mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurant-icon-mask@2x.png"; sourceTree = "<group>"; };
+		9B6203461CC7C1FB005020F4 /* FTAssetRendererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FTAssetRendererTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B62034A1CC7C1FB005020F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../FTAssetRendererTests/Info.plist; sourceTree = "<group>"; };
+		9B6203501CC7C228005020F4 /* FTAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTAssetRendererTests.h; path = ../../FTAssetRendererTests/FTAssetRendererTests.h; sourceTree = "<group>"; };
+		9B6203511CC7C228005020F4 /* FTAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTAssetRendererTests.m; path = ../../FTAssetRendererTests/FTAssetRendererTests.m; sourceTree = "<group>"; };
+		9B6203521CC7C228005020F4 /* FTImageAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTImageAssetRendererTests.h; path = ../../FTAssetRendererTests/FTImageAssetRendererTests.h; sourceTree = "<group>"; };
+		9B6203531CC7C228005020F4 /* FTImageAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTImageAssetRendererTests.m; path = ../../FTAssetRendererTests/FTImageAssetRendererTests.m; sourceTree = "<group>"; };
+		9B6203541CC7C228005020F4 /* FTPDFAssetRendererTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTPDFAssetRendererTests.h; path = ../../FTAssetRendererTests/FTPDFAssetRendererTests.h; sourceTree = "<group>"; };
+		9B6203551CC7C228005020F4 /* FTPDFAssetRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTPDFAssetRendererTests.m; path = ../../FTAssetRendererTests/FTPDFAssetRendererTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,13 +81,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		51C409921625F62900AF7C06 /* Frameworks */ = {
+		9B6203431CC7C1FB005020F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51C409981625F62A00AF7C06 /* SenTestingKit.framework in Frameworks */,
-				51C409991625F62A00AF7C06 /* UIKit.framework in Frameworks */,
-				51C4099A1625F62A00AF7C06 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +96,7 @@
 			children = (
 				51C409C21626044E00AF7C06 /* Example */,
 				51C409B31626000A00AF7C06 /* Source */,
-				51C4099D1625F62A00AF7C06 /* Tests */,
+				9B6203471CC7C1FB005020F4 /* FTAssetRendererTests */,
 				51C409781625F62900AF7C06 /* Frameworks */,
 				51C409761625F62900AF7C06 /* Products */,
 			);
@@ -115,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				51C409751625F62900AF7C06 /* FTAssetRenderer.app */,
-				51C409961625F62900AF7C06 /* FTAssetRendererTests.octest */,
+				9B6203461CC7C1FB005020F4 /* FTAssetRendererTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,24 +117,8 @@
 				51C409791625F62900AF7C06 /* UIKit.framework */,
 				51C4097B1625F62900AF7C06 /* Foundation.framework */,
 				51C4097D1625F62900AF7C06 /* CoreGraphics.framework */,
-				51C409971625F62900AF7C06 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		51C4099D1625F62A00AF7C06 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				51C409C5162619C100AF7C06 /* Supporting Files */,
-				51C409E01627339300AF7C06 /* FTAssetRendererTests.h */,
-				51C409E11627339300AF7C06 /* FTAssetRendererTests.m */,
-				51C409A31625F62A00AF7C06 /* FTPDFAssetRendererTests.h */,
-				51C409A41625F62A00AF7C06 /* FTPDFAssetRendererTests.m */,
-				51C409E31627353300AF7C06 /* FTImageAssetRendererTests.h */,
-				51C409E41627353300AF7C06 /* FTImageAssetRendererTests.m */,
-			);
-			name = Tests;
-			path = ../Tests;
 			sourceTree = "<group>";
 		};
 		51C409B31626000A00AF7C06 /* Source */ = {
@@ -151,10 +126,10 @@
 			children = (
 				51C409D91627191600AF7C06 /* FTAssetRenderer.h */,
 				51C409DA1627191600AF7C06 /* FTAssetRenderer.m */,
-				51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */,
-				51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */,
 				51C409DD1627240D00AF7C06 /* FTImageAssetRenderer.h */,
 				51C409DE1627240D00AF7C06 /* FTImageAssetRenderer.m */,
+				51C409B81626014200AF7C06 /* FTPDFAssetRenderer.h */,
+				51C409B91626014200AF7C06 /* FTPDFAssetRenderer.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -186,13 +161,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		51C409C5162619C100AF7C06 /* Supporting Files */ = {
+		9B6203471CC7C1FB005020F4 /* FTAssetRendererTests */ = {
 			isa = PBXGroup;
 			children = (
-				51C4099F1625F62A00AF7C06 /* FTAssetRendererTests-Info.plist */,
-				51C409A01625F62A00AF7C06 /* InfoPlist.strings */,
+				9B62034A1CC7C1FB005020F4 /* Info.plist */,
+				9B6203501CC7C228005020F4 /* FTAssetRendererTests.h */,
+				9B6203511CC7C228005020F4 /* FTAssetRendererTests.m */,
+				9B6203521CC7C228005020F4 /* FTImageAssetRendererTests.h */,
+				9B6203531CC7C228005020F4 /* FTImageAssetRendererTests.m */,
+				9B6203541CC7C228005020F4 /* FTPDFAssetRendererTests.h */,
+				9B6203551CC7C228005020F4 /* FTPDFAssetRendererTests.m */,
 			);
-			name = "Supporting Files";
+			path = FTAssetRendererTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,24 +195,23 @@
 			productReference = 51C409751625F62900AF7C06 /* FTAssetRenderer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		51C409951625F62900AF7C06 /* FTAssetRendererTests */ = {
+		9B6203451CC7C1FB005020F4 /* FTAssetRendererTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51C409AB1625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTAssetRendererTests" */;
+			buildConfigurationList = 9B62034D1CC7C1FC005020F4 /* Build configuration list for PBXNativeTarget "FTAssetRendererTests" */;
 			buildPhases = (
-				51C409911625F62900AF7C06 /* Sources */,
-				51C409921625F62900AF7C06 /* Frameworks */,
-				51C409931625F62900AF7C06 /* Resources */,
-				51C409941625F62900AF7C06 /* ShellScript */,
+				9B6203421CC7C1FB005020F4 /* Sources */,
+				9B6203431CC7C1FB005020F4 /* Frameworks */,
+				9B6203441CC7C1FB005020F4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				51C4099C1625F62A00AF7C06 /* PBXTargetDependency */,
+				9B62034C1CC7C1FB005020F4 /* PBXTargetDependency */,
 			);
 			name = FTAssetRendererTests;
-			productName = FTPDFIconRendererTests;
-			productReference = 51C409961625F62900AF7C06 /* FTAssetRendererTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productName = FTAssetRendererTests;
+			productReference = 9B6203461CC7C1FB005020F4 /* FTAssetRendererTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -242,6 +221,12 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Fingertips BV";
+				TargetAttributes = {
+					9B6203451CC7C1FB005020F4 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 51C409741625F62900AF7C06;
+					};
+				};
 			};
 			buildConfigurationList = 51C4096F1625F62900AF7C06 /* Build configuration list for PBXProject "FTAssetRenderer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -256,7 +241,7 @@
 			projectRoot = "";
 			targets = (
 				51C409741625F62900AF7C06 /* FTAssetRenderer */,
-				51C409951625F62900AF7C06 /* FTAssetRendererTests */,
+				9B6203451CC7C1FB005020F4 /* FTAssetRendererTests */,
 			);
 		};
 /* End PBXProject section */
@@ -276,31 +261,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		51C409931625F62900AF7C06 /* Resources */ = {
+		9B6203441CC7C1FB005020F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51C409A21625F62A00AF7C06 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		51C409941625F62900AF7C06 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		51C409711625F62900AF7C06 /* Sources */ = {
@@ -315,23 +283,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		51C409911625F62900AF7C06 /* Sources */ = {
+		9B6203421CC7C1FB005020F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51C409A51625F62A00AF7C06 /* FTPDFAssetRendererTests.m in Sources */,
-				51C409E21627339300AF7C06 /* FTAssetRendererTests.m in Sources */,
-				51C409E51627353300AF7C06 /* FTImageAssetRendererTests.m in Sources */,
+				9B6203561CC7C228005020F4 /* FTAssetRendererTests.m in Sources */,
+				9B6203581CC7C228005020F4 /* FTPDFAssetRendererTests.m in Sources */,
+				9B6203571CC7C228005020F4 /* FTImageAssetRendererTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		51C4099C1625F62A00AF7C06 /* PBXTargetDependency */ = {
+		9B62034C1CC7C1FB005020F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 51C409741625F62900AF7C06 /* FTAssetRenderer */;
-			targetProxy = 51C4099B1625F62A00AF7C06 /* PBXContainerItemProxy */;
+			targetProxy = 9B62034B1CC7C1FB005020F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,14 +308,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				51C409831625F62900AF7C06 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		51C409A01625F62A00AF7C06 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				51C409A11625F62A00AF7C06 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -362,7 +322,18 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -374,10 +345,20 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,15 +371,36 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -428,37 +430,69 @@
 			};
 			name = Release;
 		};
-		51C409AC1625F62A00AF7C06 /* Debug */ = {
+		9B62034E1CC7C1FC005020F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTAssetRenderer.app/FTAssetRenderer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "../Tests/FTAssetRendererTests-Info.plist";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = ../FTAssetRendererTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fngtps.FTAssetRendererTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FTAssetRenderer.app/FTAssetRenderer";
 			};
 			name = Debug;
 		};
-		51C409AD1625F62A00AF7C06 /* Release */ = {
+		9B62034F1CC7C1FC005020F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FTAssetRenderer.app/FTAssetRenderer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "../Tests/FTAssetRendererTests-Info.plist";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = ../FTAssetRendererTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fngtps.FTAssetRendererTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FTAssetRenderer.app/FTAssetRenderer";
 			};
 			name = Release;
 		};
@@ -483,11 +517,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		51C409AB1625F62A00AF7C06 /* Build configuration list for PBXNativeTarget "FTAssetRendererTests" */ = {
+		9B62034D1CC7C1FC005020F4 /* Build configuration list for PBXNativeTarget "FTAssetRendererTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				51C409AC1625F62A00AF7C06 /* Debug */,
-				51C409AD1625F62A00AF7C06 /* Release */,
+				9B62034E1CC7C1FC005020F4 /* Debug */,
+				9B62034F1CC7C1FC005020F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

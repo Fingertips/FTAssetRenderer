@@ -1,7 +1,7 @@
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "FTImageAssetRenderer.h"
 
-@interface FTImageAssetRendererTests : SenTestCase
+@interface FTImageAssetRendererTests : XCTestCase
 
 @property (nonatomic) FTImageAssetRenderer *renderer;
 

@@ -2,28 +2,28 @@
 
 @implementation FTAssetRenderer (FTPDFAssetRenderer)
 
-+ (FTImageAssetRenderer *)rendererForImageNamed:(NSString *)imageName withExtension:(NSString *)extName;
++ (FTImageAssetRenderer *)rendererForImageNamed:(NSString *)imageName withExtension:(NSString *)extName
 {
-  NSURL *URL = nil;
+    NSURL *URL = nil;
 
-  // First check if the main screen has a higher scale than 1 and if a explicit
-  // image for that scale exists.
-  int scale = (int)[[UIScreen mainScreen] scale];
-  if (scale > 1) {
-    NSString *scaledImageName = [NSString stringWithFormat:@"%@@%dx", imageName, scale];
-    URL = [[NSBundle mainBundle] URLForResource:scaledImageName withExtension:extName];
-  }
+    // First check if the main screen has a higher scale than 1 and if a explicit
+    // image for that scale exists.
+    int scale = (int)[[UIScreen mainScreen] scale];
+    if (scale > 1) {
+        NSString *scaledImageName = [NSString stringWithFormat:@"%@@%dx", imageName, scale];
+        URL = [[NSBundle mainBundle] URLForResource:scaledImageName withExtension:extName];
+    }
 
-  // Otherwise load the normal image, without a scale in its name.
-  if (!URL) {
-    URL = [[NSBundle mainBundle] URLForResource:imageName withExtension:extName];
-  }
+    // Otherwise load the normal image, without a scale in its name.
+    if (URL == nil) {
+        URL = [[NSBundle mainBundle] URLForResource:imageName withExtension:extName];
+    }
 
-  if (URL) {
-    FTImageAssetRenderer *renderer = [[FTImageAssetRenderer alloc] initWithURL:URL];
-    return renderer;
-  }
-  return nil;
+    if (URL != nil) {
+        FTImageAssetRenderer *renderer = [[FTImageAssetRenderer alloc] initWithURL:URL];
+        return renderer;
+    }
+    return nil;
 }
 
 @end
@@ -33,33 +33,38 @@
 
 @synthesize sourceImage = _sourceImage;
 
-- (UIImage *)sourceImage;
+#pragma mark - FTAssetRenderer
+
+- (CGSize)targetSize
 {
-  if (!_sourceImage) {
-    _sourceImage = [[UIImage alloc] initWithContentsOfFile:self.URL.path];
-  }
-  return _sourceImage;
+    return self.sourceImage.size;
 }
 
-- (CGSize)targetSize;
+- (UIImage *)imageWithCacheIdentifier:(NSString *)identifier
 {
-  return self.sourceImage.size;
+    if (self.sourceImage == nil) {
+        [NSException raise:@"FTAssetRendererError"
+                    format:@"Can’t render an image without a source image."];
+    }
+    return [super imageWithCacheIdentifier:identifier];
 }
 
-- (UIImage *)imageWithCacheIdentifier:(NSString *)identifier;
+- (void)drawImageInContext:(CGContextRef)context
 {
-  if (self.sourceImage == nil) {
-    [NSException raise:@"FTAssetRendererError"
-                format:@"Can’t render an image without a source image."];
-  }
-  return [super imageWithCacheIdentifier:identifier];
+    UIImage *source = self.sourceImage;
+    CGRect rect = CGRectMake(0, 0, source.size.width, source.size.height);
+    CGContextDrawImage(context, rect, [source CGImage]);
 }
 
-- (void)drawImageInContext:(CGContextRef)context;
+#pragma mark - FTImageAssetRenderer
+
+- (UIImage *)sourceImage
 {
-  UIImage *source = self.sourceImage;
-  CGRect rect = CGRectMake(0, 0, source.size.width, source.size.height);
-  CGContextDrawImage(context, rect, [source CGImage]);
+    if (_sourceImage == nil && self.URL.path != nil) {
+        _sourceImage = [[UIImage alloc] initWithContentsOfFile:self.URL.path];
+    }
+
+    return _sourceImage;
 }
 
 @end
