@@ -28,7 +28,7 @@ static NSString * FTPDFMD5String(NSString *input) {
     }
 
     _URL = URL;
-    _cache = YES;
+    _useCache = YES;
 
     return self;
 }
@@ -39,6 +39,21 @@ static NSString * FTPDFMD5String(NSString *input) {
 }
 
 #pragma mark - FTAssetRenderer
+
++ (NSString *)cacheDirectory
+{
+    static NSString *cacheDirectory;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cacheDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+        cacheDirectory = [cacheDirectory stringByAppendingPathComponent:@"__FTAssetRenderer_Cache__"];
+        [[NSFileManager new] createDirectoryAtPath:cacheDirectory
+                       withIntermediateDirectories:YES
+                                        attributes:nil
+                                             error:NULL];
+    });
+    return cacheDirectory;
+}
 
 // Should be overriden by subclass.
 - (CGSize)targetSize
@@ -53,14 +68,14 @@ static NSString * FTPDFMD5String(NSString *input) {
 
 - (UIImage *)imageWithCacheIdentifier:(NSString *)identifier
 {
-    if (self.cache) {
+    if (self.useCache) {
         [self canCacheWithIdentifier:identifier];
     }
 
     UIImage *image = nil;
     NSString *cachePath = nil;
 
-    if (self.cache) {
+    if (self.useCache) {
         cachePath = [self cachePathWithIdentifier:identifier];
         image = [self cachedImageAtPath:cachePath];
         if (image != nil) {
@@ -81,7 +96,7 @@ static NSString * FTPDFMD5String(NSString *input) {
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 
-    if (self.cache) {
+    if (self.useCache) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             [UIImagePNGRepresentation(image) writeToFile:cachePath atomically:NO];
         });
@@ -104,21 +119,6 @@ static NSString * FTPDFMD5String(NSString *input) {
     CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
     CGSize targetSize = self.targetSize;
     CGContextFillRect(context, CGRectMake(0, 0, targetSize.width, targetSize.height));
-}
-
-+ (NSString *)cacheDirectory
-{
-    static NSString *cacheDirectory;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cacheDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-        cacheDirectory = [cacheDirectory stringByAppendingPathComponent:@"__FTAssetRenderer_Cache__"];
-        [[NSFileManager new] createDirectoryAtPath:cacheDirectory
-                       withIntermediateDirectories:YES
-                                        attributes:nil
-                                             error:NULL];
-    });
-    return cacheDirectory;
 }
 
 - (void)canCacheWithIdentifier:(NSString *)identifier

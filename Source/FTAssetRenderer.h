@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, nullable) NSURL *URL;
 @property (nonatomic, strong, nullable) UIColor *targetColor;
-@property (nonatomic, assign) BOOL cache;
+@property (nonatomic, assign) BOOL useCache; // defaults to YES
 @property (nonatomic, readonly) CGSize targetSize;
 
 + (NSString *)cacheDirectory;

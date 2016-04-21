@@ -78,10 +78,10 @@
 {
     self.renderer.targetColor = [UIColor redColor];
 
-    self.renderer.cache = NO;
+    self.renderer.useCache = NO;
     XCTAssertNoThrow([self.renderer imageWithCacheIdentifier:nil]);
 
-    self.renderer.cache = YES;
+    self.renderer.useCache = YES;
     XCTAssertThrowsSpecificNamed([self.renderer imageWithCacheIdentifier:nil], NSException, @"FTAssetRendererError");
 }
 

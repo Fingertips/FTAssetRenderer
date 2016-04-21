@@ -39,15 +39,4 @@
     XCTAssertEqualObjects(newPath, [self.renderer cachePathWithIdentifier:@"highlighted"]);
 }
 
-//- (void)testRaisesWhenUsedAsMaskAndCachingWithoutCacheIdentifier
-//{
-//self.renderer.targetColor = [UIColor redColor];
-
-//self.renderer.cache = NO;
-//STAssertNoThrow([self.renderer imageWithCacheIdentifier:nil], nil);
-
-//self.renderer.cache = YES;
-//STAssertThrowsSpecificNamed([self.renderer imageWithCacheIdentifier:nil], NSException, @"FTAssetRendererError", nil);
-//}
-
 @end
