@@ -60,7 +60,7 @@
 
 - (UIImage *)sourceImage
 {
-    if (_sourceImage == nil) {
+    if (_sourceImage == nil && self.URL.path != nil) {
         _sourceImage = [[UIImage alloc] initWithContentsOfFile:self.URL.path];
     }
 

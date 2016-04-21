@@ -165,21 +165,21 @@
 {
     CGSize sourceSize = self.sourceSize;
     CGFloat scaleFactor = MAX(sourceSize.width / maxSize.width, sourceSize.height / maxSize.height);
-    self.targetSize = CGSizeMake(ceilf(sourceSize.width / scaleFactor), ceilf(sourceSize.height / scaleFactor));
+    self.targetSize = CGSizeMake((CGFloat)ceil(sourceSize.width / scaleFactor), (CGFloat)ceil(sourceSize.height / scaleFactor));
 }
 
 - (void)fitWidth:(CGFloat)targetWidth
 {
     CGSize sourceSize = self.sourceSize;
     CGFloat aspectRatio = sourceSize.width / sourceSize.height;
-    self.targetSize = CGSizeMake(targetWidth, ceilf(targetWidth / aspectRatio));
+    self.targetSize = CGSizeMake(targetWidth, (CGFloat)ceil(targetWidth / aspectRatio));
 }
 
 - (void)fitHeight:(CGFloat)targetHeight
 {
     CGSize sourceSize = self.sourceSize;
     CGFloat aspectRatio = sourceSize.width / sourceSize.height;
-    self.targetSize = CGSizeMake(ceilf(targetHeight * aspectRatio), targetHeight);
+    self.targetSize = CGSizeMake((CGFloat)ceil(targetHeight * aspectRatio), targetHeight);
 }
 
 @end

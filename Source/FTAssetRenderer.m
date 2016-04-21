@@ -107,7 +107,7 @@ static NSString * FTPDFMD5String(NSString *input) {
 
 #pragma mark - Private
 
-- (void)drawImageInContext:(CGContextRef)context
+- (void)drawImageInContext:(__unused CGContextRef)context
 {
     [NSException raise:@"AbstractClassError"
                 format:@"This class is supposed to be subclassed."];
@@ -152,8 +152,7 @@ static NSString * FTPDFMD5String(NSString *input) {
 
 - (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier
 {
-    NSDictionary *attributes = [[NSFileManager new] attributesOfItemAtPath:self.URL.path
-                                                                     error:NULL];
+    NSDictionary *attributes = [[NSFileManager new] attributesOfItemAtPath:self.URL.path error:NULL];
     NSString *filename = [NSString stringWithFormat:@"%@-%@-%@-%@-%@",
                           [self.URL lastPathComponent],
                           attributes[NSFileSize],

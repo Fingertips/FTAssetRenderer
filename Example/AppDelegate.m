@@ -3,7 +3,7 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions
 {
     CGRect frame = [[UIScreen mainScreen] bounds];
 
@@ -22,14 +22,6 @@
     [button setImage:[renderer imageWithCacheIdentifier:@"normal"] forState:UIControlStateNormal];
     renderer.targetColor = [UIColor whiteColor];
     [button setImage:[renderer imageWithCacheIdentifier:@"highlighted"] forState:UIControlStateHighlighted];
-
-    //  UIImage *image = [FTPDFAssetRenderer imageOfPDFNamed:@"restaurant-icon-mask"
-    //                                          targetWidth:frame.size.width
-    //                                          targetColor:[UIColor greenColor]
-    //                                       withIdentifier:@"pink is always good"];
-    //  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    //  imageView.frame = CGRectMake(0, 100, imageView.bounds.size.width, imageView.bounds.size.height);
-    //  [self.window addSubview:imageView];
     
     [self.window makeKeyAndVisible];
     return YES;
